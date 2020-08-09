@@ -3,7 +3,7 @@ import axios from 'axios';
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
       <h1>Welcome To C4C Jumpstart!</h1>
