@@ -1,0 +1,12 @@
+.blogpost {
+    margin: 0 auto;
+}
+
+.textArea {
+    resize: none;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
