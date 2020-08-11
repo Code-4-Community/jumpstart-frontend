@@ -1,0 +1,49 @@
+.blogPost {
+    margin: 0 auto;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+textarea {  
+   font-family:"Times New Roman", Times, serif;  
+   font-size: 20px;   
+   padding: 15px;
+   resize: none;
+}
+
+.titleAuthor {
+    font-size: 25px;
+}
+
+.headTitle{
+    font-size: 40px;
+    justify-content: center;
+    text-align: center;
+}
+
+.endButtons {
+    padding: 20px;
+    font-size: 30px;
+    margin-left: 200px;
+    margin-right: 200px;
+    background: rgb(255, 23, 23);
+}
+
+.endButtons:focus{
+    padding: 20px;
+    font-size: 30px;
+    margin-left: 200px;
+    margin-right: 200px;
+    background: rgba(255, 23, 23, 0.747);
+}
+
+input[type=submit] {
+    background: rgb(2, 255, 2);
+}
+
+input[type=submit]:focus {
+    background: rgba(2, 255, 2, 0.747);
+}
