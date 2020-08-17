@@ -1,5 +1,5 @@
 import React from 'react';
-import '../CreateBlogPost.css' //allows us to use the css from our other file
+import '../CreateBlogPost_HTML.css' //allows us to use the css from our other file
 
 /***********************************************************************************************/
 
@@ -37,7 +37,7 @@ function cancelPost() {
 
 //HTML/CSS
 
-const CreateBlogPost: React.FC = () => {
+const CreateBlogPost_HTML: React.FC = () => {
     return (
         <div className="container">
             <div className="blogPost">
@@ -88,4 +88,4 @@ const CreateBlogPost: React.FC = () => {
     );
 }
 
-export default CreateBlogPost;
+export default CreateBlogPost_HTML;
