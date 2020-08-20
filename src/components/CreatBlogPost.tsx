@@ -117,6 +117,7 @@ const CreateBlogPost: React.FC = () => {
                         fullWidth
                         multiline
                         rows={8}
+                        rowsMax={150}
                         label="Content"
                         variant="outlined"
                         className={classes.textfield}
@@ -127,18 +128,6 @@ const CreateBlogPost: React.FC = () => {
                                                  content: e.target.value};
                             setPost(newPostObj);
                           }}
-                    />
-                    <TextField 
-                        id="preview"
-                        margin="normal"
-                        fullWidth
-                        multiline
-                        disabled
-                        rows={8}
-                        rowsMax={100}
-                        label="Preview"
-                        variant="outlined"
-                        className={classes.textfield}
                     />
                 </Box>
                 <Box className={classes.actionButton}>

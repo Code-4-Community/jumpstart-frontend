@@ -3,6 +3,7 @@ import {
     Button,
     Box,
     Container,
+    Grid,
     Typography
 } from '@material-ui/core';
 
@@ -15,18 +16,18 @@ interface BlogPostProps {
 const Post: React.FC<BlogPostProps> = ({title, author, content}) => {
     return(
         <Container>
-            <Box>
-                <Box>
+            <Grid container>
+                <Grid item xs={6}>
                     <Typography variant="h1">{title}</Typography>
-                    <Typography variant="h4">{author}</Typography>
-                </Box>
-                <Box>
+                    <Typography variant="h4">By: {author}</Typography>
+                </Grid>
+                <Grid item xs={6}>
                     <Button>Delete Post</Button>
-                </Box>
-                <Box>
+                </Grid>
+                <Grid item xs={12} >
                     {content}
-                </Box>
-            </Box>
+                </Grid>
+            </Grid>
         </Container>
     );
 }
