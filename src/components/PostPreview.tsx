@@ -2,22 +2,30 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Clap from '@material-ui/icons/PanToolOutlined'; 
 import Comment from '@material-ui/icons/TextsmsOutlined'; //the comment icon
+import { Link } from 'react-router-dom';
 import {
     Container, 
     Grid, 
     Typography
 } from '@material-ui/core';
+import { send } from 'process';
+import BlogPost from '../views/BlogPost';
 
 const useStyles = makeStyles({
-
-    root:{
+    root: {
         marginBottom: '2rem',
         borderStyle: 'solid',
         padding: '1rem'
     },
+
     author: {
         fontStyle: 'italic',
     },
+
+    noHighlight: {
+        textDecoration: 'none',
+        color: 'inherit'
+    }
 
 })
 
@@ -35,8 +43,8 @@ const PostPreview: React.FC<PostPreviewProps> = (props) => {
 
     const classes = useStyles();
 
-    return(
-        <Container>
+    return (
+        <Container component={Link} to={`posts/${props.postId}`}  className={classes.noHighlight}>
             <Grid container className={classes.root}>
                 <Grid item xs={12}>
                                                         {/*since props is an object, we must use a dot accessor to get the data */}

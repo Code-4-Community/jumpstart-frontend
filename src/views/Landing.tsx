@@ -29,6 +29,7 @@ const Landing: React.FC = () => {
                 <Grid item xs={10} className={classes.postPrev}>
                     {posts.map(post => (
                         <PostPreview
+                            key={post.id}
                             title={post.title}
                             author={post.author}
                             content={post.postPreview}

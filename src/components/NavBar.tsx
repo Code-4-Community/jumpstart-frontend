@@ -1,7 +1,13 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+<<<<<<< HEAD
 import HomeIcon from '@material-ui/icons/Home'; //icon for home
 import AddIcon from '@material-ui/icons/Add'; //icon for add
+=======
+import HomeIcon from '@material-ui/icons/Home';
+import AddIcon from '@material-ui/icons/Add';
+import { Link } from 'react-router-dom';
+>>>>>>> 53fc351... Added Routing to the application
 import {
     AppBar, //appbar is a special material ui component that is used especially for navigation
     Grid,
@@ -45,15 +51,27 @@ const NavBar: React.FC = () => {
                     <Grid item xs={3}>
                         <Button size="large"
                             className={classes.navButtons}
+<<<<<<< HEAD
                             endIcon={<HomeIcon />}>
                             Home
+=======
+                            component={Link}
+                            to="/"
+                            endIcon={<HomeIcon />}>Home
+>>>>>>> 53fc351... Added Routing to the application
                     </Button>
                     </Grid>
                     <Grid item xs={3}>
                         <Button size="large"
                             className={classes.navButtons}
+<<<<<<< HEAD
                             endIcon={<AddIcon />}>
                             Add A Post
+=======
+                            component={Link}
+                            to="/posts/create"
+                            endIcon={<AddIcon />}>Add A Post
+>>>>>>> 53fc351... Added Routing to the application
                     </Button>
                     </Grid>
                 </Grid>

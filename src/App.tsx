@@ -6,10 +6,14 @@ import Landing from './views/Landing';
 
 const App: React.FC = () => {
   return (
-    <div>
+    <Router>
       <NavBar />
-      <Landing />
-    </div>
+      <Switch>
+        <Route path="/" exact component={Landing}/>
+        <Route path="/posts/create" exact component={CreateBlogPost}/>
+        <Route path="/posts/:postId"  component={BlogPost}/>
+      </Switch>
+    </Router>
   );
 }
 
