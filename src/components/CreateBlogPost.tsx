@@ -44,6 +44,8 @@ const useStyles = makeStyles({
 
   submitButton: {
     padding: '3rem',
+    paddingLeft: '3.75rem',
+    paddingRight: '3.75rem',
     background: 'lightGreen',
   },
 
