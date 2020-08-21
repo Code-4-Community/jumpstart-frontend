@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Comment from './Comment';
+import { makeStyles } from '@material-ui/core/styles'
 import {
     Container, 
     Typography,
@@ -7,40 +8,63 @@ import {
     Button
 } from '@material-ui/core';
 
-const [comments,setComments] = useState([
-    {
-        user: 'joe',
-        claps: 4,
-        content: 'Test'
+
+const useStyles = makeStyles({
+    top: {
+        borderStyle: 'solid'
     },
 
-    {
-        user: 'roy',
-        claps: 25,
-        content: 'hey'
+    commentText: {
+        fontSize: '19px',
+        fontWeight: 'bold'
     },
 
-    {
-        user: 'jim',
-        claps: 94,
-        content: 't'
-    }
-]);
+    createComment: {
+        background: 'lightgrey'
+    },
+
+
+});
+
 
 const ListOfComments: React.FC = () => {
+    const classes = useStyles();
+
+    const [comments,setComments] = useState([
+        {
+            user: 'joe',
+            date: 'Wed Aug 19 2020 20:14:06',
+            claps: 4,
+            content: 'Test'
+        },
+    
+        {
+            user: 'roy',
+            date: 'Wed Aug 19 2020 20:14:06',
+            claps: 25,
+            content: 'hey'
+        },
+    
+        {
+            user: 'jim',
+            date: 'Wed Aug 19 2020 20:14:06',
+            claps: 94,
+            content: 't'
+        }
+    ]);
+
     return(
         <Container>
             <Grid container>
-                <Grid item xs={6} >
-                    <Typography>Comments (999999)</Typography>
+                <Grid item xs={9} className={classes.top}>
+                    <Typography className={classes.commentText}>Comments (999999)</Typography>
                 </Grid>
-                <Grid item xs={6} >
-                    <Typography>Date</Typography>
-                    <Button>Create Comment</Button>
+                <Grid item xs={3} className={classes.top}>
+                    <Button className={classes.createComment} fullWidth>Create Comment</Button>
                 </Grid>
-                <Grid item xs={12} >
+                <Grid item xs={12}>
                     {comments.map(comment => (
-                        <Comment username={comment.user} claps={comment.claps} content={comment.content} />
+                        <Comment username={comment.user} date={comment.date} claps={comment.claps} content={comment.content} />
                     ))}
                 </Grid>
             </Grid>
