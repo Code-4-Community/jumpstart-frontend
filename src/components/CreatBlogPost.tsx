@@ -45,6 +45,8 @@ const useStyles = makeStyles({
 
     submitButton: {
         padding: '3rem',
+        paddingLeft: '3.75rem',
+        paddingRight: '3.75rem',
         background: 'lightGreen'
     }, 
 
@@ -132,7 +134,7 @@ const CreateBlogPost: React.FC = () => {
                 </Box>
                 <Box className={classes.actionButton}>
                     <Button variant="outlined" className={classes.cancelButton}>Cancel</Button>
-                    <Button variant="outlined" type="submit" className={classes.submitButton}>Submit</Button>
+                    <Button variant="outlined" type="submit" className={classes.submitButton}>Post</Button>
                 </Box>
             </form>
         </Container>
