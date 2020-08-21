@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Clap from '@material-ui/icons/PanToolOutlined';
 import {
     Box,
     Button,
@@ -49,7 +48,7 @@ const Comment: React.FC<CommentProps> = ({username, date, claps, content}) => {
         <Container>
             <Grid container className={classes.root}>
                 <Grid item xs={7}>
-                    <Typography variant="h6">{username} <Clap />   {claps}</Typography>
+                    <Typography variant="h6">{username} <Box component="span" fontSize="24px">👏</Box>  {claps}</Typography>
                 </Grid>
                 <Grid item xs={5}>
                     <Typography className={classes.date}>{date}</Typography>

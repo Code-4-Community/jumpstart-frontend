@@ -1,8 +1,8 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/core/styles'
-import Clap from '@material-ui/icons/PanToolOutlined';
 import {
     Button,
+    Box,
     Container,
     Grid,
     Typography
@@ -55,7 +55,7 @@ const Post: React.FC<BlogPostProps> = ({title, author, content, claps}) => {
                     <Typography variant="h2">{title}</Typography>
                 </Grid>
                 <Grid item xs={8} className={classes.sub}>
-                    <Typography variant="h4">By: {author}  <Clap /> {claps}</Typography>
+                    <Typography variant="h4">By: {author}  <Box component="span" fontSize="24px">👏</Box>{claps}</Typography>
                 </Grid>
                 <Grid item xs={4} className={classes.sub}>
                     <Button fullWidth className={classes.deletePost}>Delete Post</Button>

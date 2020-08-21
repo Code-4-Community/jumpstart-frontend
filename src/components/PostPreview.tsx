@@ -5,7 +5,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import {
     Container, 
     Grid, 
-    Typography
+    Typography,
+    Box
 } from '@material-ui/core';
 import { send } from 'process';
 
@@ -46,7 +47,7 @@ const PostPreview: React.FC<PostPreviewProps> = ({title, author, content, commen
                     <Typography variant="body1" className={classes.author} >Written By: {author}</Typography>
                 </Grid>
                 <Grid item xs={6}>
-                    <Typography>{comments} <Comment />  {claps} <Clap /></Typography>
+                    <Typography>{comments} <Box component="span" fontSize="24px">💬</Box>  {claps} <Box component="span" fontSize="24px">👏</Box> </Typography>
                 </Grid>
             </Grid>
         </Container>
