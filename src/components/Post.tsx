@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Clap from '@material-ui/icons/PanToolOutlined';
-import { Button, Container, Grid, Typography } from '@material-ui/core';
+import { Button, Box, Container, Grid, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles({
   root: {
@@ -50,7 +49,11 @@ const Post: React.FC<BlogPostProps> = ({ title, author, content, claps }) => {
         </Grid>
         <Grid item xs={8} className={classes.sub}>
           <Typography variant="h4">
-            By: {author} <Clap /> {claps}
+            By: {author}{' '}
+            <Box component="span" fontSize="24px">
+              👏
+            </Box>
+            {claps}
           </Typography>
         </Grid>
         <Grid item xs={4} className={classes.sub}>

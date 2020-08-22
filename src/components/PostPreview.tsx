@@ -2,7 +2,7 @@ import React from 'react';
 import Comment from '@material-ui/icons/CommentOutlined';
 import Clap from '@material-ui/icons/PanToolOutlined';
 import { makeStyles } from '@material-ui/core/styles';
-import { Container, Grid, Typography } from '@material-ui/core';
+import { Container, Grid, Typography, Box } from '@material-ui/core';
 import { send } from 'process';
 
 const useStyles = makeStyles({
@@ -55,7 +55,14 @@ const PostPreview: React.FC<PostPreviewProps> = ({
         </Grid>
         <Grid item xs={6}>
           <Typography>
-            {comments} <Comment /> {claps} <Clap />
+            {comments}{' '}
+            <Box component="span" fontSize="24px">
+              💬
+            </Box>{' '}
+            {claps}{' '}
+            <Box component="span" fontSize="24px">
+              👏
+            </Box>{' '}
           </Typography>
         </Grid>
       </Grid>

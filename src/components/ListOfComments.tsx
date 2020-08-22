@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Comment from './Comment';
+import CreateComment from './CreateComment';
 import { makeStyles } from '@material-ui/core/styles';
-import { Container, Typography, Grid, Button } from '@material-ui/core';
+import { Container, Typography, Grid, Button, Hidden } from '@material-ui/core';
 
 const useStyles = makeStyles({
   top: {
@@ -44,6 +45,10 @@ const ListOfComments: React.FC = () => {
     },
   ]);
 
+  const [createComment, setCreateComment] = useState(true);
+
+  const createCommentText = createComment ? 'Create Comment' : 'Cancel Comment';
+
   return (
     <Container>
       <Grid container>
@@ -53,10 +58,21 @@ const ListOfComments: React.FC = () => {
           </Typography>
         </Grid>
         <Grid item xs={3} className={classes.top}>
-          <Button className={classes.createComment} fullWidth>
-            Create Comment
+          <Button
+            onClick={() => {
+              setCreateComment(!createComment);
+            }}
+            className={classes.createComment}
+            fullWidth
+          >
+            {createCommentText}
           </Button>
         </Grid>
+        <Hidden xsUp={createComment}>
+          <Grid item xs={12}>
+            <CreateComment />
+          </Grid>
+        </Hidden>
         <Grid item xs={12}>
           {comments.map((comment) => (
             <Comment
