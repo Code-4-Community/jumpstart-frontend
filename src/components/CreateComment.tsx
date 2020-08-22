@@ -15,7 +15,7 @@ const useStyles = makeStyles({
     },
 
     author: {
-        width: '40%',
+        width: '100%',
         marginTop: '1rem',
         marginBottom: '1rem',
     },
@@ -27,17 +27,9 @@ const useStyles = makeStyles({
         justifyContent: 'space-around',
         alignItems: 'center'
     },
-    
-    cancelButton: {
-        padding: '1.5rem',
-        paddingLeft: '6rem',
-        paddingRight: '6rem',
-        background: 'red'
-
-    },
 
     submitButton: {
-        padding: '1.5rem',
+        padding: '0.75rem',
         paddingLeft: '7rem',
         paddingRight: '7rem',
         background: 'lightGreen'
@@ -75,7 +67,7 @@ const CreateComment: React.FC = () => {
                             setComment(newCommentObj);
                           }}/>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={6}>
                     <TextField                         
                         id="author"
                         margin="normal"
@@ -91,10 +83,7 @@ const CreateComment: React.FC = () => {
                           }}/>
                 </Grid>
                 <Grid item xs={6} className={classes.actionButton}>
-                    <Button variant="outlined" className={classes.cancelButton}>Cancel</Button>
-                </Grid>
-                <Grid item xs={6} className={classes.actionButton}>
-                    <Button variant="outlined" className={classes.submitButton}>Post</Button>
+                    <Button variant="outlined" className={classes.submitButton} >Post</Button>
                 </Grid>
             </Grid>
         </Container>

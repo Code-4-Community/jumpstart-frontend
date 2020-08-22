@@ -13,7 +13,7 @@ const App: React.FC = () => {
   return (
     <div>
       <NavBar />
-      <CreateComment />
+      <BlogPost title="First post" author="max" content="fjaidojscijoiadnscionaiosdjc" claps={232} id={1}/>
     </div>
   );
 }

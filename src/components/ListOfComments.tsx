@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Comment from './Comment';
+import CreateComment from './CreateComment';
 import { makeStyles } from '@material-ui/core/styles'
 import {
     Container, 
     Typography,
     Grid,
-    Button
+    Button,
+    Hidden
 } from '@material-ui/core';
 
 
@@ -51,7 +53,12 @@ const ListOfComments: React.FC = () => {
             claps: 94,
             content: 't'
         }
+        
     ];
+
+    const [createComment, setCreateComment] = useState(true);
+
+    const createCommentText = (createComment ? "Create Comment" : "Cancel Comment");
 
     return(
         <Container>
@@ -60,8 +67,16 @@ const ListOfComments: React.FC = () => {
                     <Typography className={classes.commentText}>Comments (999999)</Typography>
                 </Grid>
                 <Grid item xs={3} className={classes.top}>
-                    <Button className={classes.createComment} fullWidth>Create Comment</Button>
+                    <Button 
+                        onClick={() => {setCreateComment(!createComment)}} 
+                        className={classes.createComment} 
+                        fullWidth>{createCommentText}</Button>
                 </Grid>
+                <Hidden xsUp={createComment}>
+                    <Grid item xs={12}>
+                        <CreateComment />
+                    </Grid>
+                </Hidden>
                 <Grid item xs={12}>
                     {comments.map(comment => (
                         <Comment username={comment.user} date={comment.date} claps={comment.claps} content={comment.content} />
