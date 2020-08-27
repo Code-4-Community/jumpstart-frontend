@@ -1,16 +1,15 @@
 import React from 'react';
-import Comment from '@material-ui/icons/CommentOutlined';
-import Clap from '@material-ui/icons/PanToolOutlined';
 import { makeStyles } from '@material-ui/core/styles';
+import Clap from '@material-ui/icons/PanToolOutlined'; 
+import Comment from '@material-ui/icons/TextsmsOutlined'; //the comment icon
 import {
     Container, 
     Grid, 
-    Typography,
-    Box
+    Typography
 } from '@material-ui/core';
-import { send } from 'process';
 
 const useStyles = makeStyles({
+
     root:{
         marginBottom: '2rem',
         borderStyle: 'solid',
@@ -22,6 +21,7 @@ const useStyles = makeStyles({
 
 })
 
+//interface for defining the type of props we are bring in
 interface PostPreviewProps {
     title: string;
     author: string;
@@ -31,23 +31,26 @@ interface PostPreviewProps {
     postId: number;
 }
 
-const PostPreview: React.FC<PostPreviewProps> = ({title, author, content, comments, claps, postId}) => {
+const PostPreview: React.FC<PostPreviewProps> = (props) => {
+
     const classes = useStyles();
 
     return(
         <Container>
             <Grid container className={classes.root}>
                 <Grid item xs={12}>
-                    <Typography variant="h4" gutterBottom>{title}</Typography>
+                                                        {/*since props is an object, we must use a dot accessor to get the data */}
+                    <Typography variant="h4" gutterBottom>{props.title}</Typography>
                 </Grid>
                 <Grid item xs={12}>
-                    <Typography variant="h6" gutterBottom>{content}</Typography>
+                                            {/*gutterBottom provides a automatic bottom margin */}
+                    <Typography variant="h6" gutterBottom>{props.content}</Typography>
                 </Grid>
                 <Grid item xs={6}>
-                    <Typography variant="body1" className={classes.author} >Written By: {author}</Typography>
+                    <Typography variant="body1" className={classes.author} >Written By: {props.author}</Typography>
                 </Grid>
                 <Grid item xs={6}>
-                    <Typography>{comments} <Box component="span" fontSize="24px">💬</Box>  {claps} <Box component="span" fontSize="24px">👏</Box> </Typography>
+                    <Typography>{props.comments} <Comment />  {props.claps} <Clap /> </Typography>
                 </Grid>
             </Grid>
         </Container>

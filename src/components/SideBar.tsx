@@ -1,7 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import {
-    Container,
     Typography,
     Box,
     Button,
@@ -9,6 +8,7 @@ import {
 } from '@material-ui/core'
 
 const useStyles = makeStyles({
+
     root: {
         marginTop: '4.5rem',
         borderStyle: 'solid',
@@ -33,6 +33,7 @@ const useStyles = makeStyles({
 
 
 const SideBar: React.FC = () => {
+
     const classes = useStyles();
 
     return (
@@ -47,17 +48,28 @@ const SideBar: React.FC = () => {
                     </Typography>
                 </Grid>
                 <Grid item className={classes.searchBy}>
-                    <Typography>Search By:</Typography>
-                    <Button className={classes.filters}>Likes</Button> <br />
-                    <Button className={classes.filters}>Recent</Button> <br />
-                    <Button className={classes.filters}>Longest</Button> <br />
-                    <Button className={classes.filters}>Featured</Button>
+                    <Grid container>
+                        <Grid item xs={12}>
+                        <Typography>Search By:</Typography>
+                        </Grid>
+                        <Grid item xs={12}>
+                        <Button className={classes.filters}>Likes</Button>
+                        </Grid>
+                        <Grid item xs={12}>
+                        <Button className={classes.filters}>Recent</Button>
+                        </Grid>
+                        <Grid item xs={12}>
+                        <Button className={classes.filters}>Longest</Button>
+                        </Grid>
+                        <Grid item xs={12}>
+                        <Button className={classes.filters}>Featured</Button>
+                        </Grid>
+                    </Grid>
                 </Grid>
             </Box>
         </Grid>
 
     );
 }
-
 
 export default SideBar;

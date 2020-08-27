@@ -1,10 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import HomeIcon from '@material-ui/icons/Home';
-import AddIcon from '@material-ui/icons/Add';
+import HomeIcon from '@material-ui/icons/Home'; //icon for home
+import AddIcon from '@material-ui/icons/Add'; //icon for add
 import {
-    AppBar,
-    Box,
+    AppBar, //appbar is a special material ui component that is used especially for navigation
+    Grid,
     Container,
     Typography,
     Button
@@ -13,6 +13,7 @@ import {
 
 
 const useStyles = makeStyles({
+
     root: {
         display: 'flex',
         justifyContent: 'space-around',
@@ -20,7 +21,6 @@ const useStyles = makeStyles({
         marginBottom: '0.5rem',
         marginTop: '0.5rem'
     },
-    
     navButtons: {
         padding: '1rem',
         paddingLeft: '3rem',
@@ -31,22 +31,32 @@ const useStyles = makeStyles({
 });
 
 const NavBar: React.FC = () => {
+
     const classes = useStyles();
 
-    return(
+    return (
+        //stick is what makes the component stay where it is on the screen regardless of scrolling
         <AppBar position="sticky" color="default" elevation={1}>
             <Container>
-                <Box className={classes.root}>
-                    <Typography variant="h3">The Jumpstart Blog</Typography>
-                    <Button size="large" 
+                <Grid container className={classes.root}>
+                    <Grid item xs={6}>
+                        <Typography variant="h3">The Jumpstart Blog</Typography>
+                    </Grid>
+                    <Grid item xs={3}>
+                        <Button size="large"
                             className={classes.navButtons}
-                            endIcon={<HomeIcon />}>Home
+                            endIcon={<HomeIcon />}>
+                            Home
                     </Button>
-                    <Button size="large" 
+                    </Grid>
+                    <Grid item xs={3}>
+                        <Button size="large"
                             className={classes.navButtons}
-                            endIcon={<AddIcon />}>Add A Post
+                            endIcon={<AddIcon />}>
+                            Add A Post
                     </Button>
-                </Box>
+                    </Grid>
+                </Grid>
             </Container>
         </AppBar>
     );
