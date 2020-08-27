@@ -1,6 +1,9 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import BlogPost from './views/BlogPost';
 import NavBar from './components/NavBar';
 import Landing from './views/Landing';
+import CreateBlogPost from './views/CreateBlogPost';
 
 
 
