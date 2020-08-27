@@ -1,6 +1,6 @@
 import React from 'react';
 import NavBar from './components/NavBar';
-import Landing from './components/Landing';
+import Landing from './views/Landing';
 
 const App: React.FC = () => {
   return (

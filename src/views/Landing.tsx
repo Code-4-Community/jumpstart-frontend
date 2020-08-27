@@ -1,40 +1,9 @@
 import React from 'react';
-import SideBar from './SideBar';
-import PostPreview from './PostPreview';
+import SideBar from '../components/SideBar';
+import PostPreview from '../components/PostPreview';
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Grid } from '@material-ui/core';
-
-const posts = [
-  {
-    title: 'My First Post',
-    author: 'Max Sebso',
-    postPreview:
-      'test test test tes test test test test este stes test setest stets',
-    comments: 7,
-    claps: 192,
-    id: 1,
-  },
-
-  {
-    title: 'My First Post',
-    author: 'Max Sebso',
-    postPreview:
-      'test test test tes test test test test este stes test setest stets',
-    comments: 7,
-    claps: 192,
-    id: 2,
-  },
-
-  {
-    title: 'My First Post',
-    author: 'Max Sebso',
-    postPreview:
-      'test test test tes test test test test este stes test setest stets',
-    comments: 7,
-    claps: 192,
-    id: 3,
-  },
-];
+import posts from '../store/Posts'; // access the post data in store
 
 const useStyles = makeStyles({
   postPrev: {
@@ -43,6 +12,7 @@ const useStyles = makeStyles({
 });
 
 const Landing: React.FC = () => {
+  let postId = 0;
   const classes = useStyles();
 
   return (
@@ -54,6 +24,7 @@ const Landing: React.FC = () => {
         <Grid item xs={10} className={classes.postPrev}>
           {posts.map((post) => (
             <PostPreview
+              key={postId++}
               title={post.title}
               author={post.author}
               content={post.postPreview}

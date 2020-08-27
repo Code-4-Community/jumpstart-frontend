@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Container, TextField, Grid, Button } from '@material-ui/core';
+import {
+  Container,
+  TextField, // this material ui component is most similar to an input tag,
+  // basically it allows a user to input text in an area
+  Grid,
+  Button,
+} from '@material-ui/core';
 
 const useStyles = makeStyles({
   root: {
@@ -8,13 +14,11 @@ const useStyles = makeStyles({
     marginBottom: '2rem',
     borderStyle: 'solid',
   },
-
   author: {
     width: '100%',
     marginTop: '1rem',
     marginBottom: '1rem',
   },
-
   actionButton: {
     marginTop: '2rem',
     marginBottom: '2rem',
@@ -22,7 +26,6 @@ const useStyles = makeStyles({
     justifyContent: 'space-around',
     alignItems: 'center',
   },
-
   submitButton: {
     padding: '0.75rem',
     paddingLeft: '7rem',
@@ -34,15 +37,32 @@ const useStyles = makeStyles({
 const CreateComment: React.FC = () => {
   const classes = useStyles();
 
-  const [comment, setComment] = useState({
-    author: '',
-    content: '',
-  });
+  // allows us to keep track of the author of the comment that is being created
+  const [author, setAuthor] = useState('');
+
+  // allows us to keep track of the author of the comment that is being created
+  const [content, setContent] = useState('');
+
+  // this JS lambda function holds a callback function for updating the content in a comment
+  const handleChangeContent = (
+    event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
+  ) => {
+    setContent(event.target.value);
+  };
+
+  // this JS lambda function holds a callback function for updating the author in a comment
+  const handleChangeAuthor = (
+    event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
+  ) => {
+    setAuthor(event.target.value);
+  };
 
   return (
     <Container className={classes.root}>
       <Grid container>
         <Grid item xs={12}>
+          {/*all the defined props can be found at 
+                       TextField API in material ui: https://material-ui.com/api/text-field/*/}
           <TextField
             id="content"
             margin="normal"
@@ -52,14 +72,8 @@ const CreateComment: React.FC = () => {
             rowsMax={50}
             label="Comment"
             variant="outlined"
-            value={comment.content}
-            onChange={(e) => {
-              const newCommentObj = {
-                author: comment.author,
-                content: e.target.value,
-              };
-              setComment(newCommentObj);
-            }}
+            value={content}
+            onChange={handleChangeContent}
           />
         </Grid>
         <Grid item xs={6}>
@@ -69,15 +83,9 @@ const CreateComment: React.FC = () => {
             rowsMax={1}
             label="Author"
             variant="outlined"
-            value={comment.author}
+            value={author}
             className={classes.author}
-            onChange={(e) => {
-              const newCommentObj = {
-                author: e.target.value,
-                content: comment.content,
-              };
-              setComment(newCommentObj);
-            }}
+            onChange={handleChangeAuthor}
           />
         </Grid>
         <Grid item xs={6} className={classes.actionButton}>
