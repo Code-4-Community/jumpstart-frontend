@@ -13,7 +13,8 @@ import {
 const useStyles = makeStyles({
 
     root: {
-        borderStyle: 'solid'
+        borderStyle: 'solid',
+        marginBottom: '1rem',
     },
     date: {
         float: 'left',

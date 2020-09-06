@@ -8,8 +8,7 @@ import {
     Grid, 
     Typography
 } from '@material-ui/core';
-import { send } from 'process';
-import BlogPost from '../views/BlogPost';
+
 
 const useStyles = makeStyles({
     root: {

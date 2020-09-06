@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { Redirect } from 'react-router-dom';
 import {
     Button,
     Box,
@@ -70,11 +71,20 @@ const CreateBlogPost: React.FC = () => {
     //allows us to keep track of the post that is being created
     const [content, setContent] = useState('');
 
+    //allows us to keep track of if we have submitted or not
+    const [redirect, setRedirect] = useState(false);
+
     //this JS lambda function holds a callback function for updating the post when the form is submitted
     const handleSubmit = () => {
+        setRedirect(true);
         alert("Title of the Post: " + title + "\n" +
             "Author of the Post: " + author + "\n" +
             "Content of the Post: " + content);
+    }
+
+    //this JS lambda function holds a callback function for redirected the post when it is cancelled
+    const handleCancel = () => {
+        setRedirect(true);
     }
 
     //this JS lambda function holds a callback function for updating the title in a post
@@ -97,6 +107,8 @@ const CreateBlogPost: React.FC = () => {
 
     return (
         <Container className={classes.root}>
+            {/*if we should redirect then we should redirect to / (landing page) else then we should do nothing */}
+            {redirect ? <Redirect to="/" /> : undefined}
             <Typography variant="h2" className={classes.title}>
                 Create A Blog Post
             </Typography>
@@ -139,7 +151,7 @@ const CreateBlogPost: React.FC = () => {
                     />
                 </Box>
                 <Box className={classes.actionButton}>
-                    <Button variant="outlined" className={classes.cancelButton}>Cancel</Button>
+                    <Button variant="outlined" className={classes.cancelButton} onClick={handleCancel}>Cancel</Button>
                     <Button variant="outlined" type="submit" className={classes.submitButton}>Post</Button>
                 </Box>
             </form>
