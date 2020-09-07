@@ -1,5 +1,5 @@
 import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Clap from '@material-ui/icons/PanToolOutlined'; //the clap icon
 import {
     Button,
@@ -31,6 +31,11 @@ const useStyles = makeStyles({
     content: {
         borderStyle: 'solid',
         marginButton: '1rem'
+    },
+    clap: {
+        '&:hover': {
+            opacity: 0.5
+          },
     }
 
 });
@@ -45,16 +50,20 @@ interface BlogPostProps {
 
 const Post: React.FC<BlogPostProps> = (props) => {
 
+    const handleClap = () => {
+        alert('clapped');
+    }
+
     const classes = useStyles();
 
-    return(
+    return (
         <Container>
             <Grid container className={classes.root}>
                 <Grid item xs={12} className={classes.title}>
                     <Typography variant="h2">{props.title}</Typography>
                 </Grid>
                 <Grid item xs={8} className={classes.sub}>
-                    <Typography variant="h4">By: {props.author}  <Clap />{props.claps}</Typography>
+                    <Typography variant="h4">By: {props.author}  <Clap className={classes.clap} onClick={handleClap}/>{props.claps}</Typography>
                 </Grid>
                 <Grid item xs={4} className={classes.sub}>
                     <Button fullWidth className={classes.deletePost}>Delete Post</Button>

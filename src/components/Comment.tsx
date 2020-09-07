@@ -31,6 +31,11 @@ const useStyles = makeStyles({
         float: 'right',
         textAlign: 'right',
         background: 'lightgrey'
+    },
+    clap: {
+        '&:hover': {
+            opacity: 0.5
+          },
     }
 
 });
@@ -49,6 +54,10 @@ const Comment: React.FC<CommentProps> = (props) => {
     //this allows use to access the styles that were defined above
     const classes = useStyles();
 
+    const handleClap = () => {
+        alert('clapped');
+    }
+
     return(
         <Container>
                   {/*container is what contains grid items*/}
@@ -56,7 +65,7 @@ const Comment: React.FC<CommentProps> = (props) => {
                       {/*a grid item that takes up 7/12 of the grid size*/}
                 <Grid item xs={7}>
                                 {/*varient is the type of text used (ei. h1,h2,h3...p,subtitle,body) */}
-                    <Typography variant="h6">{props.username} <Clap />  {props.claps}</Typography>
+                    <Typography variant="h6">{props.username} <Clap className={classes.clap} onClick={handleClap}/>  {props.claps}</Typography>
                 </Grid>
                       {/*a grid item that takes up 5/12 of the grid size*/}
                 <Grid item xs={5}>
