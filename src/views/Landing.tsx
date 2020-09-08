@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import SideBar from '../components/SideBar';
 import PostPreview from '../components/PostPreview';
 import { makeStyles } from '@material-ui/core/styles';
@@ -6,7 +6,8 @@ import {
     Container,
     Grid
 } from '@material-ui/core';
-import posts from '../store/Posts'; //access the post data in store
+import { Post } from '../Types'; //access the post typing 
+import { getAllPosts } from '../api/api';
 
 const useStyles = makeStyles({
 
@@ -20,6 +21,16 @@ const Landing: React.FC = () => {
 
     const classes = useStyles();
 
+    //allows us to keep track of posts
+    const [posts, setPosts] = useState<Post[]>([]);
+
+    //GET call to posts in backend
+    useEffect(()=>{
+        getAllPosts().then((p: Post[])=>{
+            setPosts(p);
+        })
+    },[])
+
     return (
         <Container>
             <Grid container>
@@ -32,9 +43,9 @@ const Landing: React.FC = () => {
                             key={post.id}
                             title={post.title}
                             author={post.author}
-                            content={post.postPreview}
-                            comments={post.comments}
-                            claps={post.claps}
+                            content={post.preview}
+                            comments={post.commentCount}
+                            claps={post.clapCount}
                             postId={post.id} />
                     ))}
                 </Grid>

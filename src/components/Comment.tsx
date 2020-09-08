@@ -8,6 +8,7 @@ import {
     Grid, //creates a responsive and adaptive layout
     Typography //basically cool styled text
 } from '@material-ui/core';
+import { clapComment, deleteComment } from '../api/api';
 
 //creates a makeshift style sheet that can be used with any element;
 const useStyles = makeStyles({
@@ -35,17 +36,19 @@ const useStyles = makeStyles({
     clap: {
         '&:hover': {
             opacity: 0.5
-          },
+          }
     }
 
 });
 
 //this is interface is used to declare prop types
 interface CommentProps {
-    username: string;
-    date: string;
-    claps: number;
-    content: string;
+    author: string;
+    dateCreated: string;
+    clapCount: number;
+    body: string;
+    id: number;
+    postId: number;
 }
 
 //the function that holds all of our JSX which we export
@@ -53,9 +56,15 @@ const Comment: React.FC<CommentProps> = (props) => {
 
     //this allows use to access the styles that were defined above
     const classes = useStyles();
+    
+    //javascript lambda function to handle clapping a comment
+    const handleClapComment = () => {
+        clapComment(props.postId, props.id);
+    }
 
-    const handleClap = () => {
-        alert('clapped');
+    //javascript lambda function to handle deleting a comment
+    const handleDeleteComment = () => {
+        deleteComment(props.postId, props.id);
     }
 
     return(
@@ -65,16 +74,16 @@ const Comment: React.FC<CommentProps> = (props) => {
                       {/*a grid item that takes up 7/12 of the grid size*/}
                 <Grid item xs={7}>
                                 {/*varient is the type of text used (ei. h1,h2,h3...p,subtitle,body) */}
-                    <Typography variant="h6">{props.username} <Clap className={classes.clap} onClick={handleClap}/>  {props.claps}</Typography>
+                    <Typography variant="h6">{props.author} <Clap className={classes.clap} onClick={handleClapComment}/>  {props.clapCount}</Typography>
                 </Grid>
                       {/*a grid item that takes up 5/12 of the grid size*/}
                 <Grid item xs={5}>
-                    <Typography className={classes.date}>{props.date}</Typography>
-                    <Button className={classes.deleteComment}>Delete Comment</Button>
+                    <Typography className={classes.date}>{props.dateCreated}</Typography>
+                    <Button className={classes.deleteComment} onClick={handleDeleteComment}>Delete Comment</Button>
                 </Grid>
                 <Grid item xs={12} className={classes.content}>
                     <Box>
-                        <Typography>{props.content}</Typography>
+                        <Typography>{props.body}</Typography>
                     </Box>
                 </Grid>
             </Grid>

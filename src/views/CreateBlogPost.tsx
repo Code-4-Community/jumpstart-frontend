@@ -8,6 +8,8 @@ import {
     TextField,
     Typography
 } from '@material-ui/core';
+import { createPost } from '../api/api';
+import { CreatePost } from '../Types';
 
 const useStyles = makeStyles({
 
@@ -50,13 +52,6 @@ const useStyles = makeStyles({
     }
 });
 
-//interface that defines what a post is made of
-interface Post {
-    title: string;
-    author: string;
-    content: string;
-}
-
 
 const CreateBlogPost: React.FC = () => {
 
@@ -69,17 +64,20 @@ const CreateBlogPost: React.FC = () => {
     const [author, setAuthor] = useState('');
 
     //allows us to keep track of the post that is being created
-    const [content, setContent] = useState('');
+    const [body, setBody] = useState('');
 
     //allows us to keep track of if we have submitted or not
     const [redirect, setRedirect] = useState(false);
 
     //this JS lambda function holds a callback function for updating the post when the form is submitted
     const handleSubmit = () => {
+        const post: CreatePost = {
+            title: title,
+            author: author,
+            body: body,
+        };
+        createPost(post);
         setRedirect(true);
-        alert("Title of the Post: " + title + "\n" +
-            "Author of the Post: " + author + "\n" +
-            "Content of the Post: " + content);
     }
 
     //this JS lambda function holds a callback function for redirected the post when it is cancelled
@@ -99,10 +97,10 @@ const CreateBlogPost: React.FC = () => {
         setAuthor(event.target.value);
     }
 
-    //this JS lambda function holds a callback function for updating the content in a post
-    const handleChangeContent = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+    //this JS lambda function holds a callback function for updating the body in a post
+    const handleChangeBody = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
         event.preventDefault();
-        setContent(event.target.value);
+        setBody(event.target.value);
     }
 
     return (
@@ -137,7 +135,7 @@ const CreateBlogPost: React.FC = () => {
                         onChange={handleChangeAuthor}
                     />
                     <TextField
-                        id="content"
+                        id="body"
                         margin="normal"
                         fullWidth
                         multiline
@@ -146,8 +144,8 @@ const CreateBlogPost: React.FC = () => {
                         label="Content"
                         variant="outlined"
                         className={classes.textfield}
-                        value={content}
-                        onChange={handleChangeContent}
+                        value={body}
+                        onChange={handleChangeBody}
                     />
                 </Box>
                 <Box className={classes.actionButton}>
