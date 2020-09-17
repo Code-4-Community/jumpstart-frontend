@@ -19,13 +19,30 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
+    "tslint": "^6.1.3",
     "typescript": "^3.7.5"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.43",
+    "@typescript-eslint/eslint-plugin": "^3.7.0",
+    "@typescript-eslint/parser": "^3.7.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.0.5",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "tslint -p . -c tslint.json && eslint ./src/**/*.tsx",
+    "lint-fix": "tslint --fix -p . -c tslint.json && eslint --fix ./src/**/*.tsx",
+    "prettier": "prettier --check \"./src/**/*.{js,jsx,ts,tsx,json,scss}\"",
+    "prettier-fix": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,scss}\"",
+    "type-check": "tsc"
   },
   "eslintConfig": {
     "extends": "react-app"
