@@ -1,7 +1,5 @@
 import React from 'react';
-import axios from 'axios';
-import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import CreateBlogPost from './components/CreateBlogPost'
+import CreateBlogPost from './components/CreateBlogPost';
 
 const App: React.FC = () => {
   return (
@@ -9,6 +7,6 @@ const App: React.FC = () => {
       <CreateBlogPost />
     </div>
   );
-}
+};
 
 export default App;
