@@ -1,41 +1,41 @@
 import React from 'react';
-import '../CreateBlogPost.css'; //allows us to use the css from our other file
+import '../CreateBlogPost.css'; // allows us to use the css from our other file
 
 /***********************************************************************************************/
 
-//JavaScript Lambda Functions: these unique types allow functions to be passed around like data
+// JavaScript Lambda Functions: these unique types allow functions to be passed around like data
 
-//boldIt: String -> Void (we take in a string and do something)
-//purpose: to bold the heading of the textarea a user is currently typing in
+// boldIt: String -> Void (we take in a string and do something)
+// purpose: to bold the heading of the textarea a user is currently typing in
 const boldIt = (id: string) => {
   document.getElementById(id)?.setAttribute('style', 'font-weight: bold;');
 };
 
-//revert: String -> Void (we take in a string and do something)
-//purpose: to normalize the heading of the textarea a user is just clicked out of
+// revert: String -> Void (we take in a string and do something)
+// purpose: to normalize the heading of the textarea a user is just clicked out of
 const revert = (id: string) => {
   document.getElementById(id)?.setAttribute('style', 'font-weight: normal;');
 };
 
 /***********************************************************************************************/
 
-//JavaScript Function: regular old functions that do something
+// JavaScript Function: regular old functions that do something
 
-//submitPost: -> Event(we take in a nothing and return an event)
-//purpose: alert that we have submitted a post
+// submitPost: -> Event(we take in a nothing and return an event)
+// purpose: alert that we have submitted a post
 function submitPost() {
   alert('You have just submitted a post!');
 }
 
-//cancelPost: -> Event(we take in a nothing and return an event)
-//purpose: alert that we have cancelled a post
+// cancelPost: -> Event(we take in a nothing and return an event)
+// purpose: alert that we have cancelled a post
 function cancelPost() {
   alert('You have just cancelled a post!');
 }
 
 /**********************************************************************************************/
 
-//HTML/CSS
+// HTML/CSS
 
 const CreateBlogPost: React.FC = () => {
   return (
