@@ -44,7 +44,7 @@ const CreateBlogPost: React.FC = () => {
         <div>
           <h2 className="headTitle">Create A Blog Post</h2>
         </div>
-        <form>
+        <form onSubmit={submitPost}>
           <label id="title">Title</label>
           <br />
           <textarea
@@ -82,14 +82,12 @@ const CreateBlogPost: React.FC = () => {
           <br />
           <br />
           <div className="container">
-            <button className="endButtons" onClick={cancelPost}>
+            <button type="button" className="endButtons" onClick={cancelPost}>
               Cancel
             </button>
-            <input
-              type="submit"
-              className="endButtons"
-              onClick={submitPost}
-            ></input>
+            <button type="submit" className="endButtons">
+              Submit
+            </button>
           </div>
         </form>
       </div>
