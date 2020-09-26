@@ -13,7 +13,6 @@
     "@types/react-dom": "^16.9.8",
     "@types/react-router-dom": "^5.1.5",
     "axios": "^0.19.2",
-    "eslint": "^7.9.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
@@ -41,8 +40,8 @@
     "eject": "react-scripts eject",
     "lint": "tslint -p . -c tslint.json && eslint ./src/**/*.tsx",
     "lint-fix": "tslint --fix -p . -c tslint.json && eslint --fix ./src/**/*.tsx",
-    "prettier": "prettier --check './src/**/*.{js,jsx,ts,tsx,json,scss}'",
-    "prettier-fix": "prettier --write './src/**/*.{js,jsx,ts,tsx,json,scss}'",
+    "prettier": "prettier --check \"./src/**/*.{js,jsx,ts,tsx,json,scss}\"",
+    "prettier-fix": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,scss}\"",
     "type-check": "tsc"
   },
   "eslintConfig": {

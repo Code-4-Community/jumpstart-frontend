@@ -40,10 +40,10 @@ textarea {
     background: rgba(255, 23, 23, 0.747);
 }
 
-input[type=submit] {
+button[type=submit] {
     background: rgb(2, 255, 2);
 }
 
-input[type=submit]:focus {
+button[type=submit]:focus {
     background: rgba(2, 255, 2, 0.747);
 }
