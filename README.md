@@ -109,6 +109,16 @@ Instead, it will copy all the configuration files and the transitive dependencie
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
 
+### `npm run lint` and `npm run lint-fix`
+
+These will check and perform formatting and syntax rules to your code. `npm run lint`
+will only check your code, while `npm run lint-fix` will make the required changes.
+
+### `npm run prettier` and `npm run prettier-fix`
+
+This does the same thing as `npm run lint` and `npm run lint-fix`. Usually, these commands
+are both run to make sure everything is properly formatted.
+
 
 ### Learn More About Scripts and Other React Commands
 
@@ -136,6 +146,10 @@ The dependencies that are already installed in your project are:
 	: Connects the front-end to the back-end and adds some request functionality
 - `material-ui`
 	: An open source library that has pre-built components which make styling UI cleaner and easier
+- `eslint`
+    : A library that deals with syntax checking and formatting your code
+- `prettier`
+    : Another library that deals with syntax checking and formatting your code
 
 
 ## Layout Of Project
@@ -154,5 +168,28 @@ This directory is the meat of your project. This houses all of your react compon
 
 ### `README.md` & `.gitignore`
 
-These last two files are ones courtesy of git hub. The `README.md` files is what is displayed on the repository view in git hub. You are actually reading this project's `README.md` now. `.md` is the extension of  a markdown file. The `.gitignore` is used when you do not want to commit a certain file/directory to your repository. All you do is add the file/directory to the `.gitignore` and **git will ignore** the file.
+These two files are ones courtesy of git. The `README.md` files is what is displayed on the repository view in git hub. You are actually reading this project's `README.md` now. `.md` is the extension of  a markdown file. The `.gitignore` is used when you do not want to commit a certain file/directory to your repository. All you do is add the file/directory to the `.gitignore` and **git will ignore** the file.
 
+### `.eslintignore`, `.eslintrc.json`, `.prettierrc`, and `.tslint.json`
+
+Linting is the process of cleaning up and formatting your code. The `.eslintignore` file
+is like a `.gitignore`, but for the linting, where it will ignore files that are listed.
+`.eslintrc.json`, `.tslint.json`, and `.prettierrc` are files which describe which linting settings to use for 
+linting.
+
+### `tsconfig.json`
+
+This is a file which describes the settings to be used in Typescript. 
+
+### `package.json` and `package-lock.json`
+
+These files tell NPM, or Node Package Manager, how to run your project and which packages and
+dependencies to download and include. `package.json` is a file that you'll end up editing, and 
+`package-lock.json` is a file that is created for you when you run `npm install` to deal with 
+dependency versions and depdendencies of dependencies.
+
+### `.travis.yml`
+
+This file tells [Travis-CI](https://travis-ci.com/) how to build your code and what to do
+with it in CI/CD (Continuous Integration/Continuous Deployment). It's not something you'll need
+to use during this course.
