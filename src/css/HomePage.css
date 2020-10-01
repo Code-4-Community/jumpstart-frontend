@@ -1,0 +1,74 @@
+#navBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 15px;
+  background-color: lightgray;
+}
+
+h1 {
+  margin-left: 30px;
+}
+
+button {
+  font-size: 115%;
+  height: 100px;
+  width: 200px;
+}
+
+.cardBackground {
+  padding: 5px;
+  background-color: bisque;
+  margin: 0 20px 0;
+}
+
+.welcomeMessage {
+  width: 10%;
+  margin: 15px;
+  padding: 15px;
+}
+
+#homeComponents {
+  display: flex;
+  flex-direction: row;
+}
+
+#postBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+#postColumn {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+}
+
+.post {
+  border: 5px solid black;
+  padding: 10px;
+  margin: 5px 0;
+}
+
+.postFooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.commentsAndClaps {
+  display: flex;
+  flex-direction: row;
+  padding: 0 15px;
+}
+
+h4 {
+  font-weight: normal;
+  padding-right: 5px;
+}
+
+.authorName {
+  font-weight: bold;
+}
