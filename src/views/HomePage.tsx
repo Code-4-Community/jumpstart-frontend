@@ -8,10 +8,16 @@ const HomePage: React.FC = () => {
         <h1>The Jumpstart Blog</h1>
         <div className="cardBackground">
           <button>
-            Home <span role="img">🏠</span>
+            Home{' '}
+            <span role="img" aria-label="home">
+              🏠
+            </span>
           </button>
           <button>
-            Add a Post <span role="img"> ➕</span>
+            Add a Post{' '}
+            <span role="img" aria-label="plus">
+              ➕
+            </span>
           </button>
         </div>
       </div>
@@ -39,10 +45,16 @@ const HomePage: React.FC = () => {
                 </h4>
                 <div className="commentsAndClaps">
                   <h4 className="comments">
-                    100000 <span role="img">💬</span>
+                    100000{' '}
+                    <span role="img" aria-label="speech-bubble">
+                      💬
+                    </span>
                   </h4>
                   <h4 className="claps">
-                    123456 <span role="img">👏</span>
+                    123456{' '}
+                    <span role="img" aria-label="clap">
+                      👏
+                    </span>
                   </h4>
                 </div>
               </div>
@@ -61,10 +73,16 @@ const HomePage: React.FC = () => {
                 </h4>
                 <div className="commentsAndClaps">
                   <h4 className="comments">
-                    100000 <span role="img">💬</span>
+                    100000{' '}
+                    <span role="img" aria-label="speech-bubble">
+                      💬
+                    </span>
                   </h4>
                   <h4 className="claps">
-                    123456 <span role="img">👏</span>
+                    123456{' '}
+                    <span role="img" aria-label="clap">
+                      👏
+                    </span>
                   </h4>
                 </div>
               </div>
