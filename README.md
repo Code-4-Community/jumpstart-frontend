@@ -1,4 +1,3 @@
-
   
 
 # Welcome to C4C Jumpstart-Frontend!
@@ -123,7 +122,7 @@ are both run to make sure everything is properly formatted.
 
   
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started). This will help you understand other commands that can be useful in developing your application.
+You can learn more in the # [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started). This will help you understand other commands that can be useful in developing your application.
 
 
 ## Installed Dependencies

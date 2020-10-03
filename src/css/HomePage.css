@@ -1,0 +1,99 @@
+/* All button elements. In this case, it's the home and add post buttons. */
+button {
+  font-size: 115%;
+  height: 100px;
+  width: 200px;
+}
+
+/* The title text element. In this case, it's just the "The Jumpstart Blog" text. */
+#title {
+  margin-left: 30px;
+}
+
+/* The postFooterText class. We use it for the post author, comment count, and clap count (all
+ * of the stuff in the post footer.
+*/
+.postFooterText {
+  font-weight: normal;
+  padding-right: 5px;
+}
+
+/* The NavBar at the top of the screen.
+ * This wraps the "The Jumpstart Blog" text and the buttons on the right.
+ * It also positions the button div to the right.
+ */
+#navBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 15px;
+  background-color: lightgray;
+}
+
+/* The cardBackground class. This is the beige-background div containing the buttons and it's
+ * also the div containing the "Welcome to the Jumpstart Blog" text on the left.
+ */
+.cardBackground {
+  padding: 5px;
+  background-color: bisque;
+  margin: 0 20px 0;
+}
+
+/* The div containing the "welcomeMessage cardBackground" div and the postBox div. */
+#homeComponents {
+  display: flex;
+  flex-direction: row;
+}
+
+
+/* The welcomeMessage class. This is also the "Welcome to the Jumpstart Blog" div. */
+.welcomeMessage {
+  width: 10%;
+  margin: 15px;
+  padding: 15px;
+}
+
+/* The postBox id. Contains all of the posts and centers the posts in the middle of the page. */
+#postBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+/* The postColumn id. A div containing all posts and aligns them in a downward facing column. */
+#postColumn {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+}
+
+/* The post class. Used for styling a post's positioning, its contents, and the border. */
+.post {
+  border: 5px solid black;
+  padding: 10px;
+  margin: 5px 0;
+}
+
+/* The postFooter class. Positions the poster's information on the left and the commentsAndClaps
+ * div on the right.
+ */
+.postFooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* The commentsAndClaps class. Positions the comment text and clap text. */
+.commentsAndClaps {
+  display: flex;
+  flex-direction: row;
+  padding: 0 15px;
+}
+
+/* The authorName class. Sets the font weight to bold. We use this in a span for the author name
+ * to bold the user's name and differentiate it from the rest of the text.
+ */
+.authorName {
+  font-weight: bold;
+}

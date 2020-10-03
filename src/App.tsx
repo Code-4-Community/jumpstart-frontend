@@ -1,10 +1,10 @@
 import React from 'react';
-import CreateBlogPost from './components/CreateBlogPost';
+import HomePage from './views/HomePage';
 
 const App: React.FC = () => {
   return (
     <div>
-      <CreateBlogPost />
+      <HomePage />
     </div>
   );
 };
