@@ -1,8 +1,3 @@
-/* All h1 text elements. In this case, it's just the "The Jumpstart Blog" text. */
-h1 {
-  margin-left: 30px;
-}
-
 /* All button elements. In this case, it's the home and add post buttons. */
 button {
   font-size: 115%;
@@ -10,8 +5,15 @@ button {
   width: 200px;
 }
 
-/* A h4 element. We use it for the post author, comment count, and clap count. */
-h4 {
+/* The title text element. In this case, it's just the "The Jumpstart Blog" text. */
+#title {
+  margin-left: 30px;
+}
+
+/* The postFooterText class. We use it for the post author, comment count, and clap count (all
+ * of the stuff in the post footer.
+*/
+.postFooterText {
   font-weight: normal;
   padding-right: 5px;
 }
@@ -89,7 +91,7 @@ h4 {
   padding: 0 15px;
 }
 
-/* The authorName id. Sets the font weight to bold. We use this in a span for the author name
+/* The authorName class. Sets the font weight to bold. We use this in a span for the author name
  * to bold the user's name and differentiate it from the rest of the text.
  */
 .authorName {

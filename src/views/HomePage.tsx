@@ -5,7 +5,7 @@ const HomePage: React.FC = () => {
   return (
     <div id="homePage">
       <div id="navBar">
-        <h1>The Jumpstart Blog</h1>
+        <h1 id="title">The Jumpstart Blog</h1>
         <div className="cardBackground">
           <button>
             Home{' '}
@@ -39,18 +39,18 @@ const HomePage: React.FC = () => {
                 three lines.
               </p>
               <div className="postFooter">
-                <h4 className="postAuthor">
+                <h4 className="postAuthor postFooterText">
                   Written By:{' '}
                   <span className="authorName">Jack Blanc, Dash Master</span>
                 </h4>
                 <div className="commentsAndClaps">
-                  <h4 className="comments">
+                  <h4 className="comments postFooterText">
                     100000{' '}
                     <span role="img" aria-label="speech-bubble">
                       💬
                     </span>
                   </h4>
-                  <h4 className="claps">
+                  <h4 className="claps postFooterText">
                     123456{' '}
                     <span role="img" aria-label="clap">
                       👏
@@ -67,18 +67,18 @@ const HomePage: React.FC = () => {
                 three lines.
               </p>
               <div className="postFooter">
-                <h4 className="postAuthor">
+                <h4 className="postAuthor postFooterText">
                   Written By:{' '}
                   <span className="authorName">Jack Blanc, Dash Master</span>
                 </h4>
                 <div className="commentsAndClaps">
-                  <h4 className="comments">
+                  <h4 className="comments postFooterText">
                     100000{' '}
                     <span role="img" aria-label="speech-bubble">
                       💬
                     </span>
                   </h4>
-                  <h4 className="claps">
+                  <h4 className="claps postFooterText">
                     123456{' '}
                     <span role="img" aria-label="clap">
                       👏
