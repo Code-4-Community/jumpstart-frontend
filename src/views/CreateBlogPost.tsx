@@ -1,97 +1,166 @@
-import React from 'react';
-import '../css/CreateBlogPost.css'; // allows us to use the css from our other file
+import React, { useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import {
+  Button,
+  Box,
+  Container,
+  TextField,
+  Typography,
+} from '@material-ui/core';
 
-/***********************************************************************************************/
+const useStyles = makeStyles({
+  root: {
+    paddingTop: '2rem',
+    paddingBottom: '2rem',
+  },
+  title: {
+    textAlign: 'center',
+  },
+  input: {
+    justifyItems: 'left',
+    margin: '2rem',
+  },
+  author: {
+    width: '40%',
+    marginTop: '1rem',
+    marginBottom: '1rem',
+  },
+  actionButton: {
+    marginTop: '2rem',
+    display: 'flex',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+  },
+  cancelButton: {
+    padding: '3rem',
+    background: 'red',
+  },
+  submitButton: {
+    padding: '3rem',
+    paddingLeft: '3.75rem',
+    paddingRight: '3.75rem',
+    background: 'lightGreen',
+  },
+  textfield: {
+    marginTop: '2rem',
+    marginBottom: '2rem',
+  },
+});
 
-// JavaScript Lambda Functions: these unique types allow functions to be passed around like data
-
-// boldIt: String -> Void (we take in a string and do something)
-// purpose: to bold the heading of the textarea a user is currently typing in
-const boldIt = (id: string) => {
-  document.getElementById(id)?.setAttribute('style', 'font-weight: bold;');
-};
-
-// revert: String -> Void (we take in a string and do something)
-// purpose: to normalize the heading of the textarea a user is just clicked out of
-const revert = (id: string) => {
-  document.getElementById(id)?.setAttribute('style', 'font-weight: normal;');
-};
-
-/***********************************************************************************************/
-
-// JavaScript Function: regular old functions that do something
-
-// submitPost: -> Event(we take in a nothing and return an event)
-// purpose: alert that we have submitted a post
-function submitPost() {
-  alert('You have just submitted a post!');
+// interface that defines what a post is made of
+interface Post {
+  title: string;
+  author: string;
+  content: string;
 }
-
-// cancelPost: -> Event(we take in a nothing and return an event)
-// purpose: alert that we have cancelled a post
-function cancelPost() {
-  alert('You have just cancelled a post!');
-}
-
-/**********************************************************************************************/
-
-// HTML/CSS
 
 const CreateBlogPost: React.FC = () => {
+  const classes = useStyles();
+
+  // allows us to keep track of the post that is being created
+  const [title, setTitle] = useState('');
+
+  // allows us to keep track of the post that is being created
+  const [author, setAuthor] = useState('');
+
+  // allows us to keep track of the post that is being created
+  const [content, setContent] = useState('');
+
+  // this JS lambda function holds a callback function for updating the post when the form is submitted
+  const handleSubmit = () => {
+    alert(
+      'Title of the Post: ' +
+        title +
+        '\n' +
+        'Author of the Post: ' +
+        author +
+        '\n' +
+        'Content of the Post: ' +
+        content,
+    );
+  };
+
+  // this JS lambda function holds a callback function for updating the title in a post
+  const handleChangeTitle = (
+    event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
+  ) => {
+    event.preventDefault();
+    setTitle(event.target.value);
+  };
+
+  // this JS lambda function holds a callback function for updating the author in a post
+  const handleChangeAuthor = (
+    event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
+  ) => {
+    event.preventDefault();
+    setAuthor(event.target.value);
+  };
+
+  // this JS lambda function holds a callback function for updating the content in a post
+  const handleChangeContent = (
+    event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
+  ) => {
+    event.preventDefault();
+    setContent(event.target.value);
+  };
+
   return (
-    <div className="container">
-      <div className="blogPost">
-        <div>
-          <h2 className="headTitle">Create A Blog Post</h2>
-        </div>
-        <form onSubmit={submitPost}>
-          <label id="title">Title</label>
-          <br />
-          <textarea
-            className="titleAuthor"
-            rows={1}
-            cols={70}
-            onFocus={() => boldIt('title')}
-            onBlur={() => revert('title')}
+    <Container className={classes.root}>
+      <Typography variant="h2" className={classes.title}>
+        Create A Blog Post
+      </Typography>
+      {/* wrapping in a form tag allows us to use onSubmit */}
+      <form onSubmit={handleSubmit}>
+        <Box className={classes.input}>
+          <TextField
+            id="title"
+            margin="normal"
+            fullWidth
+            multiline
+            rowsMax={2}
+            label="Title"
+            variant="outlined"
+            className={classes.textfield}
+            value={title}
+            onChange={handleChangeTitle}
           />
-          <br />
-          <br />
-          <br />
-          <label id="author">Author</label>
-          <br />
-          <textarea
-            className="titleAuthor"
-            rows={1}
-            cols={30}
-            onFocus={() => boldIt('author')}
-            onBlur={() => revert('author')}
+          <TextField
+            id="author"
+            margin="normal"
+            label="Author"
+            variant="outlined"
+            className={classes.author}
+            value={author}
+            onChange={handleChangeAuthor}
           />
-          <br />
-          <br />
-          <br />
-          <label id="content">Content</label>
-          <br />
-          <textarea
-            className="content"
-            rows={10}
-            cols={100}
-            onFocus={() => boldIt('content')}
-            onBlur={() => revert('content')}
+          <TextField
+            id="content"
+            margin="normal"
+            fullWidth
+            multiline
+            rows={8}
+            rowsMax={150}
+            label="Content"
+            variant="outlined"
+            className={classes.textfield}
+            value={content}
+            onChange={handleChangeContent}
           />
-          <br />
-          <br />
-          <br />
-          <div className="container">
-            <button type="button" className="endButtons" onClick={cancelPost}>
-              Cancel
-            </button>
-            <button type="submit" className="endButtons">
-              Submit
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
+        </Box>
+        <Box className={classes.actionButton}>
+          <Button variant="outlined" className={classes.cancelButton}>
+            Cancel
+          </Button>
+          <Button
+            variant="outlined"
+            type="submit"
+            className={classes.submitButton}
+          >
+            Post
+          </Button>
+        </Box>
+      </form>
+    </Container>
   );
 };
 

@@ -1,10 +1,12 @@
 import React from 'react';
-import HomePage from './views/HomePage';
+import NavBar from './components/NavBar';
+import Landing from './views/Landing';
 
 const App: React.FC = () => {
   return (
     <div>
-      <HomePage />
+      <NavBar />
+      <Landing />
     </div>
   );
 };
