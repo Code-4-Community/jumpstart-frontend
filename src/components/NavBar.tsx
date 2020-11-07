@@ -1,7 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import HomeIcon from '@material-ui/icons/Home'; // icon for home
-import AddIcon from '@material-ui/icons/Add'; // icon for add
+import HomeIcon from '@material-ui/icons/Home';
+import AddIcon from '@material-ui/icons/Add';
+import { Link } from 'react-router-dom';
 import {
   AppBar, // appbar is a special material ui component that is used especially for navigation
   Grid,
@@ -42,6 +43,8 @@ const NavBar: React.FC = () => {
             <Button
               size="large"
               className={classes.navButtons}
+              component={Link}
+              to="/"
               endIcon={<HomeIcon />}
             >
               Home
@@ -51,6 +54,8 @@ const NavBar: React.FC = () => {
             <Button
               size="large"
               className={classes.navButtons}
+              component={Link}
+              to="/posts/create"
               endIcon={<AddIcon />}
             >
               Add A Post

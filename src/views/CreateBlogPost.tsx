@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { Redirect } from 'react-router-dom';
 import {
   Button,
   Box,
@@ -7,6 +8,8 @@ import {
   TextField,
   Typography,
 } from '@material-ui/core';
+import { createPost } from '../api/api';
+import { CreatePost } from '../Types';
 
 const useStyles = makeStyles({
   root: {
@@ -47,13 +50,6 @@ const useStyles = makeStyles({
   },
 });
 
-// interface that defines what a post is made of
-interface Post {
-  title: string;
-  author: string;
-  content: string;
-}
-
 const CreateBlogPost: React.FC = () => {
   const classes = useStyles();
 
@@ -64,20 +60,25 @@ const CreateBlogPost: React.FC = () => {
   const [author, setAuthor] = useState('');
 
   // allows us to keep track of the post that is being created
-  const [content, setContent] = useState('');
+  const [body, setBody] = useState('');
+
+  // allows us to keep track of if we have submitted or not
+  const [redirect, setRedirect] = useState(false);
 
   // this JS lambda function holds a callback function for updating the post when the form is submitted
   const handleSubmit = () => {
-    alert(
-      'Title of the Post: ' +
-        title +
-        '\n' +
-        'Author of the Post: ' +
-        author +
-        '\n' +
-        'Content of the Post: ' +
-        content,
-    );
+    const post: CreatePost = {
+      title,
+      author,
+      body,
+    };
+    createPost(post);
+    setRedirect(true);
+  };
+
+  // this JS lambda function holds a callback function for redirected the post when it is cancelled
+  const handleCancel = () => {
+    setRedirect(true);
   };
 
   // this JS lambda function holds a callback function for updating the title in a post
@@ -96,16 +97,18 @@ const CreateBlogPost: React.FC = () => {
     setAuthor(event.target.value);
   };
 
-  // this JS lambda function holds a callback function for updating the content in a post
-  const handleChangeContent = (
+  // this JS lambda function holds a callback function for updating the body in a post
+  const handleChangeBody = (
     event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
   ) => {
     event.preventDefault();
-    setContent(event.target.value);
+    setBody(event.target.value);
   };
 
   return (
     <Container className={classes.root}>
+      {/*if we should redirect then we should redirect to / (landing page) else then we should do nothing */}
+      {redirect ? <Redirect to="/" /> : undefined}
       <Typography variant="h2" className={classes.title}>
         Create A Blog Post
       </Typography>
@@ -134,7 +137,7 @@ const CreateBlogPost: React.FC = () => {
             onChange={handleChangeAuthor}
           />
           <TextField
-            id="content"
+            id="body"
             margin="normal"
             fullWidth
             multiline
@@ -143,12 +146,16 @@ const CreateBlogPost: React.FC = () => {
             label="Content"
             variant="outlined"
             className={classes.textfield}
-            value={content}
-            onChange={handleChangeContent}
+            value={body}
+            onChange={handleChangeBody}
           />
         </Box>
         <Box className={classes.actionButton}>
-          <Button variant="outlined" className={classes.cancelButton}>
+          <Button
+            variant="outlined"
+            className={classes.cancelButton}
+            onClick={handleCancel}
+          >
             Cancel
           </Button>
           <Button

@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import SideBar from '../components/SideBar';
 import PostPreview from '../components/PostPreview';
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Grid } from '@material-ui/core';
-import posts from '../store/Posts'; // access the post data in store
+import { Post } from '../Types'; // access the post typing
+import { getAllPosts } from '../api/api';
 
 const useStyles = makeStyles({
   postPrev: {
@@ -12,8 +13,18 @@ const useStyles = makeStyles({
 });
 
 const Landing: React.FC = () => {
-  let postId = 0;
   const classes = useStyles();
+
+  // allows us to keep track of posts
+  const [posts, setPosts] = useState<Post[]>([]);
+
+  // GET call to posts in backend
+  useEffect(() => {
+    getAllPosts().then((p: Post[]) => {
+      setPosts(p);
+    });
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <Container>
@@ -24,12 +35,12 @@ const Landing: React.FC = () => {
         <Grid item xs={10} className={classes.postPrev}>
           {posts.map((post) => (
             <PostPreview
-              key={postId++}
+              key={post.id}
               title={post.title}
               author={post.author}
-              content={post.postPreview}
-              comments={post.comments}
-              claps={post.claps}
+              content={post.preview}
+              comments={post.commentCount}
+              claps={post.clapCount}
               postId={post.id}
             />
           ))}
